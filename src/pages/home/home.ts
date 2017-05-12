@@ -1,6 +1,6 @@
 import { Http} from '@angular/http';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -9,11 +9,17 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-   private loginrs: any;
-  constructor(public navCtrl: NavController, private http: Http) {
 
+  private loginDetails: any;
+  constructor(public navCtrl: NavController, private http: Http, private events: Events ) {
+    //
 
+    this.events.subscribe('content-update', (params) => this.updateLoginRs(params))
   }
 
+  updateLoginRs(loginRs:any){
+
+    this.loginDetails = loginRs
+  }
 
 }

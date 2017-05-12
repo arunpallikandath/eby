@@ -7,9 +7,56 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding (updateContent)="updateLoginRs($event)">
   <h2>Welcome to Ionic!</h2>
 
-  
+  <ion-card *ngIf="loginDetails">
+    <ion-card-header>
+      Login Details
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid >
+        <ion-row responsive-sm>
+          <ion-col col-md-3 col-sm-4>
+            Login Id
+          </ion-col >
+          <ion-col col-md-5 col-sm-8>
+            {{loginDetails.id}}
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3>
+             Urls
+          </ion-col >
+          <ion-col col-9>
+            <div>{{loginDetails.url}}</div>
+            <div>{{loginDetails.repos_url}}</div>
+            <div>{{loginDetails.events_url}}</div>
+            <div>{{loginDetails.hooks_url}}</div>
+            <div>{{loginDetails.issues_url}}</div>
+            <div>{{loginDetails.members_url}}</div>
+            <div>{{loginDetails.public_members_url}}</div>
+            <div>{{loginDetails.avatar_url}}</div>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-3>
+            Descriptions
+          </ion-col >
+          <ion-col col-9>
+            {{loginDetails.description}}
+          </ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
 
 </ion-content>
